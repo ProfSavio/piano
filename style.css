@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0 10px;
+    background: #e3f2fd;
+}
+
+.teclado {
+    border-radius: 20px;
+    padding: 35px 40px;
+    background: #141414;
+}
+
+header {
+    color: #b2b2b2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h2 {
+    font-size: 1.6rem;
+}
+
+header .column {
+    display: flex;
+    align-items: center;
+}
+
+header .column span {
+    font-weight: 500;
+    margin-right: 15px;
+    font-size: 1.19rem;
+}
+
+.controle-volume input {
+    outline: none;
+    accent-color: #fff;
+}
+
+.teclas-checkbox input {
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+    appearance: none;
+    border-radius: 30px;
+    background: #4b4b4b;
+}
+
+.teclas-checkbox input::before {
+    content: "";
+    height: 20px;
+    width: 20px;
+    top: 50%;
+    left: 5px;
+    border-radius: inherit;
+    position: absolute;
+    background: #8c8c8c; 
+    transform: translateY(-50%);  
+    transition: all 0.3s ease;
+}
+
+.teclas-checkbox input:checked::before {
+    left: 35px;
+    background: #fff;
+}
+ 
+.piano-teclas {
+    display: flex;
+    margin-top: 40px;
+}
+
+.piano-teclas .tecla {
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    color: #a2a2a2;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.piano-teclas .tecla.ocultar span {
+    display: none;
+}
+
+.piano-teclas .branca {
+    width: 70px;
+    height: 230px;
+    border-radius: 8px; 
+    background: linear-gradient(#fff 96%, #eee 4%);
+}
+
+.piano-teclas .branca.pressionada {
+    box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, #fff 0%, #eee 1%);
+}
+
+.piano-teclas .preta {
+    width: 44px;
+    height: 140px;
+    z-index: 2;
+    margin: 0 -22px 0 -22px;
+    border-radius: 0 0 5px 5px;
+    background: linear-gradient(#333, #000);
+}
+
+.piano-teclas .preta.pressionada {
+    box-shadow: inset -5px 5px 10px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(to bottom, #000, #434343);
+}
+
+.piano-teclas span {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    font-size: 1.13rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 815px) {
+    .teclado {
+        padding: 25px;
+    }
+
+    header {
+        flex-direction: column;
+    }
+    
+    header :where(h2, .column) {
+        margin-bottom: 13px;
+    }
+    
+    .controle-volume input {
+        max-width: 100px;
+    }
+    
+    .piano-teclas {
+        margin-top: 20px;
+    }
+    
+    .piano-teclas .tecla:where(:nth-child(9), :nth-child(10)) {
+        display: none;
+    }
+
+    .piano-teclas .branca {
+        height: 180px;
+        width: 60px;
+    }
+
+    .piano-teclas .preta {
+        height: 100px;
+        width: 40px;
+        margin: 0 -20px 0 -20px;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    .piano-teclas .tecla:nth-child(13),
+    .piano-teclas .tecla:nth-child(14),
+    .piano-teclas .tecla:nth-child(15),
+    .piano-teclas .tecla:nth-child(16),
+    .piano-teclas .tecla:nth-child(17) {
+        display: none;
+    }
+    .piano-teclas .branca {
+        width: 50px;
+    }
+
+}
