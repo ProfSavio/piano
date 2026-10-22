@@ -3,10 +3,10 @@ const controleVolume = document.querySelector(".controle-volume input");
 const teclasSelecao = document.querySelector(".teclas-checkbox input");
 
 let todasAsTeclas = [];
-let audio = new Audio("../tunes/a.wav"); // Por padrão, ele buscará a nota/tecla "A"
+let audio = new Audio("tunes/a.wav"); // Por padrão, ele buscará a nota/tecla "A"
 
 function tocarNota(tecla) {
-    audio.src = `../tunes/${tecla}.wav`; // Busca o audio baseado na tecla pressionada
+    audio.src = `tunes/${tecla}.wav`; // Busca o audio baseado na tecla pressionada
     console.log(`Tecla presionada: ${tecla}`);
     audio.play(); // Dá play no audio
 
